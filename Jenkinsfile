@@ -12,7 +12,6 @@ pipeline {
                 script {
                     showChanges()
                 }
-                showChanges
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
