@@ -29,6 +29,7 @@ pipeline {
 
 def showChanges() {
     def changeLogSets = currentBuild.changeSets
+    echo "changeLogSets.size=${changeLogSets.size()}"
     for (int i = 0; i < changeLogSets.size(); i++) {
         def entries = changeLogSets[i].items
         for (int j = 0; j < entries.length; j++) {
