@@ -9,6 +9,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                script {
+                    showChanges()
+                }
                 showChanges
                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
@@ -25,7 +28,7 @@ pipeline {
     }
 }
 
-def showChanges {
+def showChanges() {
     def changeLogSets = currentBuild.changeSets
     for (int i = 0; i < changeLogSets.size(); i++) {
         def entries = changeLogSets[i].items
